@@ -16,23 +16,23 @@
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
 
-                <div class="item">
-                    <!-- Correzione del binding dell'attributo src -->
+                <div class="item" @mouseover="stopInterval"
+                @mouseleave="activeInterval">
+                   
                     <img :src="slides[currentImage].image" alt="Spiderman" />
 
                     <div class="text">
-                        <!-- Aggiunto binding per il titolo e il testo -->
+                      
                         <h3>{{ slides[currentImage].title }}</h3>
                         <p>{{ slides[currentImage].text }}</p>
                     </div>
                 </div>
 
                 <div class="thumbs">
-                    <!-- Aggiunto il metodo prevImage e nextImage -->
+                    
                     <div class="prev" @click="prevImage"></div>
                     <div class="next" @click="nextImage"></div>
 
-                    <!-- Utilizzato il v-for per creare miniature delle immagini -->
                     <img 
                         v-for="(slide, index) in slides"
                         :src="slide.image"
